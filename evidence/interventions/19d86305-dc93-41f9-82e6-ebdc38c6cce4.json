@@ -1,0 +1,9 @@
+{
+  "intervention_id": "19d86305-dc93-41f9-82e6-ebdc38c6cce4",
+  "run_id": "e4941a93",
+  "reason": "Replay could not execute step_05: coordinate-only locator cannot extract text deterministically",
+  "current_step": "step_05",
+  "screenshot_path": "evidence\\screenshots\\e4941a93\\failure-05-step_05.png",
+  "state_summary": "Member Search - CU Servicing Console | http://127.0.0.1:8000/members | Regional Credit Union - Internal Servicing Console\nHomeMember ServicingReports\nMember Search\nMember ID\t\n\nUse the member number assigned by core servicing.",
+  "control_owner": "human"
+}

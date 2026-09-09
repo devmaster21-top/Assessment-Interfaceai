@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "lookup_member_savings_balance",
+  "capability_version": 1,
+  "name": "Lookup member savings balance",
+  "description": "Look up a member by member ID and read their current savings balance",
+  "target_app": "Legacy Credit Union Demo",
+  "entry_point": "http://127.0.0.1:8000/",
+  "allowed_hosts": [
+    "127.0.0.1"
+  ],
+  "inputs": [
+    {
+      "name": "member_id",
+      "type": "string",
+      "description": "Invocation parameter: member id",
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "Value extracted from Savings Balance Value"
+    }
+  ],
+  "steps": [
+    {
+      "id": "step_01",
+      "kind": "click",
+      "target": {
+        "description": "Member Servicing",
+        "candidates": [
+          {
+            "strategy": "role_name",
+            "value": "Member Servicing",
+            "role": "link",
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "text",
+            "value": "Member Servicing",
+            "role": null,
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "coordinates",
+            "value": null,
+            "role": null,
+            "x": 301.15625,
+            "y": 82.33333587646484
+          }
+        ]
+      },
+      "value": null,
+      "output_name": null,
+      "risk": "safe",
+      "wait_ms": null,
+      "note": null
+    },
+    {
+      "id": "step_02",
+      "kind": "type",
+      "target": {
+        "description": "Member ID",
+        "candidates": [
+          {
+            "strategy": "label",
+            "value": "Member ID",
+            "role": null,
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "role_name",
+            "value": "Member ID",
+            "role": "textbox",
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "css",
+            "value": "[name=\"member_id\"]",
+            "role": null,
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "coordinates",
+            "value": null,
+            "role": null,
+            "x": 585.4375,
+            "y": 188.50001049041748
+          }
+        ]
+      },
+      "value": {
+        "literal": null,
+        "parameter": "member_id"
+      },
+      "output_name": null,
+      "risk": "safe",
+      "wait_ms": null,
+      "note": null
+    },
+    {
+      "id": "step_03",
+      "kind": "click",
+      "target": {
+        "description": "Search Member",
+        "candidates": [
+          {
+            "strategy": "role_name",
+            "value": "Search Member",
+            "role": "button",
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "coordinates",
+            "value": null,
+            "role": null,
+            "x": 244.09375762939453,
+            "y": 226.50001049041748
+          }
+        ]
+      },
+      "value": null,
+      "output_name": null,
+      "risk": "safe",
+      "wait_ms": null,
+      "note": null
+    },
+    {
+      "id": "step_04",
+      "kind": "click",
+      "target": {
+        "description": "Open Savings Account",
+        "candidates": [
+          {
+            "strategy": "role_name",
+            "value": "Open Savings Account",
+            "role": "link",
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "text",
+            "value": "Open Savings Account",
+            "role": null,
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "coordinates",
+            "value": null,
+            "role": null,
+            "x": 260.94271087646484,
+            "y": 300.8333435058594
+          }
+        ]
+      },
+      "value": null,
+      "output_name": null,
+      "risk": "safe",
+      "wait_ms": null,
+      "note": null
+    },
+    {
+      "id": "step_05",
+      "kind": "extract",
+      "target": {
+        "description": "Savings Balance Value",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[aria-label=\"Savings Balance Value\"]",
+            "role": null,
+            "x": null,
+            "y": null
+          },
+          {
+            "strategy": "coordinates",
+            "value": null,
+            "role": null,
+            "x": 701.6771240234375,
+            "y": 257.5
+          }
+        ]
+      },
+      "value": null,
+      "output_name": "savings_balance",
+      "risk": "safe",
+      "wait_ms": null,
+      "note": null
+    }
+  ],
+  "success_checkpoint": {
+    "kind": "text_contains",
+    "value": "Savings Balance"
+  },
+  "business_outcomes": [
+    {
+      "code": "member_not_found",
+      "description": "The requested member does not exist.",
+      "condition": {
+        "kind": "text_contains",
+        "value": "No member found"
+      }
+    }
+  ],
+  "recoverable_conditions": [
+    {
+      "code": "session_expired",
+      "description": "The application session expired; a human may re-authenticate in the same session.",
+      "condition": {
+        "kind": "text_contains",
+        "value": "Session expired"
+      },
+      "recovery": "human_handoff",
+      "max_retries": 1
+    }
+  ],
+  "hard_failures": [
+    {
+      "code": "permission_denied",
+      "description": "The current operator is not authorized to view the requested record.",
+      "condition": {
+        "kind": "text_contains",
+        "value": "Permission denied"
+      }
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-09-09T17:54:50.318859+00:00",
+    "created_by": "llm_discovery_recorder",
+    "raw_model_transcript_persisted": false,
+    "locator_order": [
+      "label",
+      "role_name",
+      "css",
+      "text",
+      "coordinates"
+    ]
+  }
+}

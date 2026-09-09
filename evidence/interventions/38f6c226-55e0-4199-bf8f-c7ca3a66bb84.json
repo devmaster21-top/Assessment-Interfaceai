@@ -1,0 +1,9 @@
+{
+  "intervention_id": "38f6c226-55e0-4199-bf8f-c7ca3a66bb84",
+  "run_id": "e4941a93",
+  "reason": "The application session expired; a human may re-authenticate in the same session.",
+  "current_step": "step_04",
+  "screenshot_path": "evidence\\screenshots\\e4941a93\\recoverable-session_expired-1.png",
+  "state_summary": "Session Expired - CU Servicing Console | http://127.0.0.1:8000/members/search | Regional Credit Union - Internal Servicing Console\nHomeMember ServicingReports\nSession expired. Please sign in again.",
+  "control_owner": "human"
+}

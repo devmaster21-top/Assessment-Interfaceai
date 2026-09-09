@@ -1,0 +1,9 @@
+{
+  "intervention_id": "306bf85b-052d-474d-9135-28f97acb7b1b",
+  "run_id": "1dc26a1e",
+  "reason": "Discovery is stuck in the same state for three turns.",
+  "current_step": null,
+  "screenshot_path": "evidence\\screenshots\\1dc26a1e\\step-05.png",
+  "state_summary": "Member Search - CU Servicing Console | http://127.0.0.1:8000/members | Regional Credit Union - Internal Servicing Console\nHomeMember ServicingReports\nMember Search\nMember ID\t\n\nUse the member number assigned by core servicing.",
+  "control_owner": "human"
+}

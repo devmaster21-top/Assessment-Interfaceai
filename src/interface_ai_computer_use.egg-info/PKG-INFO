@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: interface-ai-computer-use
+Version: 0.1.0
+Summary: LLM discovery + deterministic replay computer-use automation take-home
+Requires-Python: >=3.11
+Requires-Dist: fastapi>=0.115
+Requires-Dist: uvicorn[standard]>=0.30
+Requires-Dist: playwright>=1.50
+Requires-Dist: pydantic>=2.9
+Requires-Dist: google-genai
+Requires-Dist: python-dotenv>=1.0
+Requires-Dist: python-multipart>=0.0.9
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.24; extra == "dev"
